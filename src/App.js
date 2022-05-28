@@ -1,23 +1,22 @@
 import './App.css';
-import {Center, Container, Flex, Heading, HStack, useBoolean} from "@chakra-ui/react";
+import React, {useState} from "react";
+import {Image, Center, Container, Flex, Heading, HStack, useBoolean} from "@chakra-ui/react";
 import News from "./News";
-import {Image} from '@chakra-ui/react'
+import Facts from "./Facts";
 
 
 function App() {
+    const [audio] = useState(new Audio("humpbackFeedingCall.mp3"))
     const [playing, setPlaying] = useBoolean(false)
 
-    let audio = new Audio("humpbackFeedingCall.mp3")
-
     const onSpeakerClick = () => {
-        setPlaying.toggle()
-
         if (playing) {
-            audio.play()
-            console.log('playing')
-        } else {
+            setPlaying.toggle()
             audio.pause()
-            console.log('pausing')
+        } else {
+            setPlaying.toggle()
+            audio.currentTime = 10
+            audio.play()
         }
     }
 
@@ -32,6 +31,17 @@ function App() {
                        alt='whale' h={[42, 70]}
                        onClick={onSpeakerClick}/>
             </Flex>
+
+            <Facts/>
+
+            <Heading as='i' bgGradient='linear(to-l, #7928CA, #FF0080)'
+                     bgClip='text' fontWeight='extrabold'
+            >Spacewhale!</Heading>
+            <Image
+                rounded="md"
+                mb={12}
+                src="https://www.sciencehistory.org/sites/default/files/styles/twitter_card/public/distillations_magazine/whaleinspace.jpg?itok=QlcFOC0T"
+            />
 
             <News/>
 

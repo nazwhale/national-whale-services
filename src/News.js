@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
-import {Box, Heading, Text} from "@chakra-ui/react";
 import axios from "axios";
+import {Text} from "@chakra-ui/react";
 
 
 const News = () => {
@@ -91,12 +91,7 @@ const News = () => {
     console.log('posts', posts)
 
     return (
-        <Box my={12}>
-            <Heading size="lg">
-                News
-            </Heading>
-            <Text>No news is good news</Text>
-        </Box>
+        <Text></Text>
     )
 }
 
