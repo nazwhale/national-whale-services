@@ -1,5 +1,5 @@
 import './App.css';
-import {Box, Flex, Heading, HStack, useBoolean} from "@chakra-ui/react";
+import {Center, Container, Flex, Heading, HStack, useBoolean} from "@chakra-ui/react";
 import News from "./News";
 import {Image} from '@chakra-ui/react'
 
@@ -22,8 +22,7 @@ function App() {
     }
 
     return (
-        <Box px={6} py={4}>
-
+        <Container px={6} py={4} my={12} maxW="container.md">
             <Flex justify="space-between" align="center">
                 <HStack align="center" spacing={6}>
                     <Image src='nws-logo.png' alt='whale' h={150} bg={"blue.200"} p={2} rounded="100%"/>
@@ -35,7 +34,11 @@ function App() {
             </Flex>
 
             <News/>
-        </Box>
+
+            <Center>
+                <Image src='whaleterloo.png' alt='whale'/>
+            </Center>
+        </Container>
     );
 }
 
