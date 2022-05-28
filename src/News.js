@@ -1,10 +1,10 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import {Box, Heading, Text} from "@chakra-ui/react";
-// import axios from "axios";
+import axios from "axios";
 
 
 const News = () => {
-    // const [posts, setPosts] = useState(null)
+    const [posts, setPosts] = useState(null)
 
     useEffect(() => {
         fetchDataFromRssFeed()
@@ -50,23 +50,23 @@ const News = () => {
         //           console.log(e);
         //       });
 
-        // const apiKey = process.env.REACT_APP_NEWSDATA_API_KEY
-        // const newsUrl = `https://newsdata.io/api/1/archive?apikey=${apiKey}`
-        //
-        // const headers = {"Access-Control-Allow-Origin": "*", "X-ACCESS-KEY": apiKey}
-        // axios.get(newsUrl, {headers, withCredentials: true})
-        //     .then(function (response) {
-        //         // handle success
-        //         console.log(response);
-        //     })
-        //     .catch(function (error) {
-        //         // handle error
-        //         console.log('err', error);
-        //     })
-        //     .then(function () {
-        //         // always executed
-        //         setPosts("done!")
-        //     });
+        const apiKey = process.env.REACT_APP_NEWSDATA_API_KEY
+        const newsUrl = `https://newsdata.io/api/1/archive?apikey=${apiKey}`
+
+        const headers = {"Access-Control-Allow-Origin": "*", "X-ACCESS-KEY": apiKey}
+        axios.get(newsUrl, {headers, withCredentials: true})
+            .then(function (response) {
+                // handle success
+                console.log(response);
+            })
+            .catch(function (error) {
+                // handle error
+                console.log('err', error);
+            })
+            .then(function () {
+                // always executed
+                setPosts("done!")
+            });
 
         // var request = new XMLHttpRequest();
         // request.onreadystatechange = () => {
@@ -88,8 +88,16 @@ const News = () => {
         console.log('fetched')
     }
 
-    return <Box my={12}><Heading
-        size="lg">News</Heading><Text>No news is good news</Text></Box>
+    console.log('posts', posts)
+
+    return (
+        <Box my={12}>
+            <Heading size="lg">
+                News
+            </Heading>
+            <Text>No news is good news</Text>
+        </Box>
+    )
 }
 
 export default News

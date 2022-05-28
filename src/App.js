@@ -10,15 +10,15 @@ function App() {
     let audio = new Audio("humpbackFeedingCall.mp3")
 
     const onSpeakerClick = () => {
-        if (playing) {
-            console.log('pausing')
-            audio.pause()
-        } else {
-            console.log('playing')
-            audio.play()
-        }
-
         setPlaying.toggle()
+
+        if (playing) {
+            audio.play()
+            console.log('playing')
+        } else {
+            audio.pause()
+            console.log('pausing')
+        }
     }
 
     return (
