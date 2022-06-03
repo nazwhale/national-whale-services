@@ -24,7 +24,7 @@ function App() {
         <Container px={6} py={4} my={12} maxW="container.md">
             <Flex justify="space-between" align="center">
                 <HStack align="center" spacing={6}>
-                    <Image src='nws-logo.png' alt='whale' h={[65, 150]} bg={"blue.200"} p={2} rounded="100%"/>
+                    <Image src='nws-logo.png' alt='whale' h={[65, 150]} p={2}/>
                     <Heading mt={4} size={["md", "xl"]}>National Whale Services</Heading>
                 </HStack>
                 <Image cursor="pointer" src={playing ? "speaker3.png" : "speaker.png"}
@@ -34,20 +34,21 @@ function App() {
 
             <Facts/>
 
-            <Heading as='i' bgGradient='linear(to-l, #7928CA, #FF0080)'
-                     bgClip='text' fontWeight='extrabold'
-            >Spacewhale!</Heading>
+            <News/>
+
+            <Center mb={12}>
+                <Image src='whaleterloo.png' alt='whale'/>
+            </Center>
+
+            <Heading as='i' size="lg" bgGradient='linear(to-l, #7928CA, #FF0080)'
+                     bgClip='text' fontWeight='extrabold'>
+                Spacewhale
+            </Heading>
             <Image
                 rounded="md"
                 mb={12}
                 src="https://www.sciencehistory.org/sites/default/files/styles/twitter_card/public/distillations_magazine/whaleinspace.jpg?itok=QlcFOC0T"
             />
-
-            <News/>
-
-            <Center>
-                <Image src='whaleterloo.png' alt='whale'/>
-            </Center>
         </Container>
     );
 }
